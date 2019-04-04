@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jrl.springboot.exception.ProductNotFoundException;
 import com.jrl.springboot.model.Product;
 
 @RestController
@@ -36,6 +37,7 @@ public class ProductController {
 	   
 	   @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
 	   public ResponseEntity<Object> updateProduct(@PathVariable("id") String id, @RequestBody Product product) { 
+		   if(!productRepo.containsKey(id)) throw new ProductNotFoundException();
 	      productRepo.remove(id);
 	      product.setId(id);
 	      productRepo.put(id, product);
