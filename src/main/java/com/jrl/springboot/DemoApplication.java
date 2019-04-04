@@ -1,4 +1,4 @@
-package com.jrl.springboot.application;
+package com.jrl.springboot;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import com.jrl.springboot.controller.ProductController;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = ProductController.class)
+//@ComponentScan(basePackageClasses = ProductController.class)
 public class DemoApplication {
 	
 	@Autowired
