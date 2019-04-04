@@ -20,8 +20,6 @@ import com.jrl.springboot.controller.ProductController;
 //@ComponentScan(basePackageClasses = ProductController.class)
 public class DemoApplication {
 	
-	@Autowired
-	RestTemplate restTemplate;
 	
 	@Value("${spring.application.name}")
 	private String appName;
