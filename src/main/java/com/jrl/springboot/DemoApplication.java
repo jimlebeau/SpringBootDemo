@@ -3,6 +3,9 @@ package com.jrl.springboot;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
+import java.util.TimeZone;
+
+import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +18,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestTemplate;
 
 import com.jrl.springboot.controller.ProductController;
+import com.jrl.springboot.service.ProductService;
 
 @SpringBootApplication
-//@ComponentScan(basePackageClasses = ProductController.class)
+//@ComponentScan(basePackageClasses = ProductService.class)
 public class DemoApplication {
 	
 	
@@ -27,6 +31,12 @@ public class DemoApplication {
 	private static final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
 	private static ApplicationContext ctx;
 
+	
+	@PostConstruct
+	void start() {
+//		TimeZone.setDefault(TimeZone.getTimeZone("PDT"));
+	}
+	
 	public static void main(String[] args) {
 		logger.info("this is a info message");
 		logger.warn("this is a warn message");

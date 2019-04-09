@@ -35,7 +35,7 @@ public class ProductControllerTest extends AbstractControllerTest {
 	   public void createProduct() throws Exception {
 	      String uri = "/products";
 	      Product product = new Product();
-	      product.setId("3");
+	      product.setId(3);
 	      product.setName("Ginger");
 	      String inputJson = super.mapToJson(product);
 	      MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri)
